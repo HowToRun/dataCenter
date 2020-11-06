@@ -12,6 +12,8 @@ package com.self.sso.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.self.sso.feign.DatadicFeign;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -23,14 +25,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 @RefreshScope
 public class TestController {
+    private Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Qualifier("service-provider")
     @Autowired
     DatadicFeign datadicFeign;
 
-    @RequestMapping(value = "/getPayment")
+    @RequestMapping(value = "/testLogger")
     public String getPayment(@RequestParam("id") Integer id) {
-        System.out.println("11111");
-        return datadicFeign.getPayment(id);
+        logger.info("SSO testController logger");
+        return "SSO testController logger";
     }
 }
