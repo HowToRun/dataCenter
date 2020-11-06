@@ -8,3 +8,6 @@ version.txt
 /.idea/
 /target/
 /datacenter.iml
+mvnw
+mvnw.cmd
+.mvn
