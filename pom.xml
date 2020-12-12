@@ -17,9 +17,8 @@
 	<modules>
 		<module>datadic</module>
 		<module>basic</module>
-		<module>sso-server</module>
-		<module>sso-client</module>
-		<module>spring-oauth-client</module>
+		<module>sso</module>
+		<module>sso</module>
 	</modules>
 <packaging>pom</packaging>
 <!--	<artifactId>datacenter</artifactId>-->
@@ -46,7 +45,10 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
