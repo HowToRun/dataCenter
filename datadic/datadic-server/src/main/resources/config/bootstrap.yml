@@ -13,11 +13,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server‐addr: 106.75.164.26:5055
+        server‐addr: xxx:5055
   redis:
-    host: 106.75.164.26
+    host: xxx
     port: 6379
-    password: huyihan
+    password: xxx
 
 mybatis-plus:
   global-config:
