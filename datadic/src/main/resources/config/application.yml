@@ -10,8 +10,8 @@ mybatis:
 
 jedis:
   pool:
-    configstr: master:106.75.164.26:6379
-    password: huyihan
+    configstr: master:xxx.xx.xx.xx:6379
+    password: xxx
     timeout: 3000
     config:
       maxTotal: 300
@@ -22,13 +22,13 @@ jedis:
 redisson:
   master-name: stgmaster
   password: huyihan
-  master-address: redis://106.75.164.26:6379
+  master-address: redis://xxx.xx.xxx.xx:6379
   slave-addresses:
 spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 106.75.164.26:5055
+        server-addr: xx.xx.xx.xx:5055
   application:
     name: service-provider
 
