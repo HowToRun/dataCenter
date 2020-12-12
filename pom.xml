@@ -18,7 +18,6 @@
 		<module>datadic</module>
 		<module>basic</module>
 		<module>sso</module>
-		<module>sso</module>
 	</modules>
 <packaging>pom</packaging>
 <!--	<artifactId>datacenter</artifactId>-->

@@ -1,0 +1,40 @@
+server:
+  port: 8882 #启动端口 命令行注入
+  servlet:
+    context-path: /datadic
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/datacenter_data_dic?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&nullCatalogMeansCurrent=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: sso
+  cloud:
+    nacos:
+      discovery:
+        server‐addr: 106.75.164.26:5055
+  redis:
+    host: 106.75.164.26
+    port: 6379
+    password: huyihan
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+#      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#sso:
+#  fiter:
+#    skip-urls: /auth/login,/auth/register,/auth/*
