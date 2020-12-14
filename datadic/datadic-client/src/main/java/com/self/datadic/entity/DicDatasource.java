@@ -25,11 +25,15 @@ public class DicDatasource extends Model<DicDatasource> {
      * 链接名称
      */
     private String name;
+    /**
+     * 数据库名
+     */
+    private String dataBase;
 
     /**
      * 数据库类型
      */
-    private String type;
+    private Integer type;
 
     /**
      * IP地址
@@ -81,6 +85,15 @@ public class DicDatasource extends Model<DicDatasource> {
     @TableField("update_time")
     private Date updateTime;
 
+    public String getDataBase() {
+        return dataBase;
+    }
+
+    public DicDatasource setDataBase(String dataBase) {
+        this.dataBase = dataBase;
+        return this;
+    }
+
     public Long getId() {
         return id;
     }
@@ -95,13 +108,7 @@ public class DicDatasource extends Model<DicDatasource> {
     public void setName(String name) {
         this.name = name;
     }
-    public String getType() {
-        return type;
-    }
 
-    public void setType(String type) {
-        this.type = type;
-    }
     public String getHost() {
         return host;
     }
@@ -132,6 +139,15 @@ public class DicDatasource extends Model<DicDatasource> {
     }
     public String getParam() {
         return param;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public DicDatasource setType(Integer type) {
+        this.type = type;
+        return this;
     }
 
     public void setParam(String param) {

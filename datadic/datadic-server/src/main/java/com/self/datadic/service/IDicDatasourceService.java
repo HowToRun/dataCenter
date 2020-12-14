@@ -1,5 +1,6 @@
 package com.self.datadic.service;
 
+import com.self.basic.bean.vo.ResultContent;
 import com.self.datadic.entity.DicDatasource;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IDicDatasourceService extends IService<DicDatasource> {
 
+    ResultContent datasourceTest(Long id);
 }
