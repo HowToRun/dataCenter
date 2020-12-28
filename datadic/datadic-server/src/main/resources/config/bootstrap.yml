@@ -3,6 +3,9 @@ server:
   servlet:
     context-path: /datadic
 spring:
+  aop:
+    proxy-target-class: true
+    auto: true
   datasource:
     url: jdbc:mysql://localhost:3306/datacenter_data_dic?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&nullCatalogMeansCurrent=true&serverTimezone=UTC
     username: root
@@ -13,11 +16,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server‐addr: xxx:5055
+        server‐addr: 106.75.164.26:5055
   redis:
-    host: xxx
+    host: 106.75.164.26
     port: 6379
-    password: xxx
+    password: huyihan
 
 mybatis-plus:
   global-config:
@@ -35,6 +38,10 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# Mybatis配置
+#mybatis:
+#  mapperLocations: classpath:xml/**/*.xml
+#  configLocation: classpath:config/mybatis.xml
 #sso:
 #  fiter:
 #    skip-urls: /auth/login,/auth/register,/auth/*

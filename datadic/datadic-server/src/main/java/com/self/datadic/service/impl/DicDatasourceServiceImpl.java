@@ -7,6 +7,7 @@ import com.self.datadic.mapper.DicDatasourceMapper;
 import com.self.datadic.query.ExtTablebaseInfoQuery;
 import com.self.datadic.service.IDicDatasourceService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,21 +27,28 @@ public class DicDatasourceServiceImpl extends ServiceImpl<DicDatasourceMapper, D
     @Resource
     DicDatasourceMapper dicDatasourceMapper;
 
+    @Autowired
+    DicDatasourceServiceImpl dicDatasourceService;
+
     @Override
     public ResultContent datasourceTest(Long id) {
-        ExtTablebaseInfoQuery query = new ExtTablebaseInfoQuery();
-        query.setDataBaseId(String.valueOf(id));
-        String name = dataSourceTestMethod(query, id);
-        DicDatasource dicDatasource = selectById(id);
+//        ExtTablebaseInfoQuery query = new ExtTablebaseInfoQuery();
+//        query.setDataBaseId(String.valueOf(id));
+//        System.out.println("method begin");
+//        String name = dicDatasourceService.dataSourceTestMethod(query, id);
+//        System.out.println("method end");
+////        DicDatasource dicDatasource = selectById(id);
 
-        return ResultContent.createSuccessResult(name);
+        return ResultContent.createSuccessResult("name");
     }
 
     @DynamicDB
-    private String dataSourceTestMethod(ExtTablebaseInfoQuery query, Long id) {
+    @Override
+    public ResultContent dataSourceTestMethod(ExtTablebaseInfoQuery query, Long id) {
         String name = dicDatasourceMapper.selectTest();
         System.out.println(name);
         System.out.println(id);
-        return name;
+        System.out.println("dataSourceTestMethod");
+        return ResultContent.createSuccessResult(name);
     }
 }

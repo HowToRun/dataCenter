@@ -11,6 +11,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -23,9 +24,25 @@ public class DynamicDataSourceAspect {
 
   private static final Logger logger = LoggerFactory.getLogger(DynamicDataSourceAspect.class);
 
-  @Before("@annotation(db)")
-  public void changeDataSource(JoinPoint point, DynamicDB db) {
 
+//    /**
+//     * 定义一个切点
+//     */
+//    @Pointcut("@annotation(com.self.datadic.annotation.DynamicDB)")
+//    public void cutOffPoint() {
+//    }
+    /**
+     * 定义一个切点
+     */
+    @Pointcut("execution(* com.self.datadic.service.impl.*.*(..))")
+    public void cutOffPoint() {
+    }
+
+
+  @Before(value = "@annotation(db)")
+  public void changeDataSource(JoinPoint point, DynamicDB db) {
+      System.out.println("apo before");
+      System.out.println(db);
     DataSourceBean bean = null;
     boolean isdefaultDataSource = false;
     if (StringUtils.isBlank(db.dataSource())) {
@@ -66,6 +83,7 @@ public class DynamicDataSourceAspect {
 
   @After("@annotation(db)")
   public void restoreDataSource(JoinPoint point, DynamicDB db) {
+      System.out.println("aop after");
     DataSourceContext.clearDataSource();
     logger.debug("<<<<<<<<DataSource return default !",
         point.getSignature());

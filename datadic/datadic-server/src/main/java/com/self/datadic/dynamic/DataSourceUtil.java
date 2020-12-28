@@ -14,10 +14,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 @Component
 public class DataSourceUtil {

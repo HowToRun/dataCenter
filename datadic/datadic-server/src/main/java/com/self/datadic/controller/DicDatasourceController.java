@@ -2,6 +2,7 @@ package com.self.datadic.controller;
 
 
 import com.self.basic.bean.vo.ResultContent;
+import com.self.datadic.query.ExtTablebaseInfoQuery;
 import com.self.datadic.service.IDicDatasourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.io.IOException;
  * @author yihan.hu
  * @since 2020-12-12
  */
-@Controller
+@RestController
 @RequestMapping("/dicDatasource")
 public class DicDatasourceController {
 
@@ -27,7 +28,10 @@ public class DicDatasourceController {
 
     @RequestMapping(value = "/datasourceTest",method = RequestMethod.GET)
     public ResultContent datasourceTest(@RequestParam Long id) throws IOException {
-        return dicDatasourceService.datasourceTest(id);
+        ExtTablebaseInfoQuery query = new ExtTablebaseInfoQuery();
+        query.setDataBaseId(String.valueOf(id));
+
+        return dicDatasourceService.dataSourceTestMethod(query,id);
 
     }
 }
