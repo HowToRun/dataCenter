@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1ky027c" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:process id="Process_0mcvtxc" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="审核开始">
+      <bpmn:outgoing>Flow_1vv2z9n</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1vv2z9n" sourceRef="StartEvent_1" targetRef="Activity_0qdux69" />
+    <bpmn:serviceTask id="Activity_0qdux69" name="审核" camunda:class="com.self.workflow.Test">
+      <bpmn:documentation>审核</bpmn:documentation>
+      <bpmn:incoming>Flow_1vv2z9n</bpmn:incoming>
+      <bpmn:outgoing>Flow_1mzr675</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0e02i5r" name="审核结束">
+      <bpmn:documentation>结束</bpmn:documentation>
+      <bpmn:incoming>Flow_1mzr675</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1mzr675" sourceRef="Activity_0qdux69" targetRef="Event_0e02i5r" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0mcvtxc">
+      <bpmndi:BPMNEdge id="Flow_1vv2z9n_di" bpmnElement="Flow_1vv2z9n">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mzr675_di" bpmnElement="Flow_1mzr675">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="432" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="175" y="142" width="45" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1txhaky_di" bpmnElement="Activity_0qdux69">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0e02i5r_di" bpmnElement="Event_0e02i5r">
+        <dc:Bounds x="432" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="428" y="142" width="45" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

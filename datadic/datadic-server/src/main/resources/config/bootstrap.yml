@@ -12,7 +12,7 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
   application:
-    name: sso
+    name: datadic
   cloud:
     nacos:
       discovery:

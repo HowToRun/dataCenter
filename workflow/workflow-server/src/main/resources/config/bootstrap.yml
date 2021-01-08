@@ -1,0 +1,54 @@
+server:
+  port: 8883 #启动端口 命令行注入
+  servlet:
+    context-path: /workflow
+spring:
+  aop:
+    proxy-target-class: true
+    auto: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/workflow?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&nullCatalogMeansCurrent=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: workflow
+  cloud:
+    nacos:
+      discovery:
+        server‐addr: 106.75.164.26:5055
+  redis:
+    host: 106.75.164.26
+    port: 6379
+    password: huyihan
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+#      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+camunda.bpm:
+  admin-user:
+    id: kermit
+    password: superSecret
+    firstName: Kermit
+  filter:
+    create: All tasks
+# Mybatis配置
+#mybatis:
+#  mapperLocations: classpath:xml/**/*.xml
+#  configLocation: classpath:config/mybatis.xml
+#sso:
+#  fiter:
+#    skip-urls: /auth/login,/auth/register,/auth/*

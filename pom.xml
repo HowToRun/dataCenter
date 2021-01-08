@@ -18,6 +18,7 @@
 		<module>datadic</module>
 		<module>basic</module>
 		<module>sso</module>
+		<module>workflow</module>
 	</modules>
 <packaging>pom</packaging>
 <!--	<artifactId>datacenter</artifactId>-->
