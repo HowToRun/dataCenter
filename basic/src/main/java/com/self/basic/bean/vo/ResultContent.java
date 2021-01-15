@@ -25,6 +25,10 @@ public class ResultContent<T> {
     public static <T>ResultContent<T> createSuccessResult(T data){
         return new ResultContent<>(BasicConstant.SUCCESS_CODE,data);
     }
+    public static <T>ResultContent<T> createNoDataSuccessResult(){
+        return new ResultContent<>(BasicConstant.SUCCESS_CODE,null,BasicConstant.SUCCESS_MSG);
+    }
+
     public static <T>ResultContent<T> createSuccessResult(T data,String msg){
         return new ResultContent<>(BasicConstant.SUCCESS_CODE,data,msg);
     }
@@ -33,6 +37,9 @@ public class ResultContent<T> {
     }
     public static <T>ResultContent<T> createErrorResult(T data,String msg){
         return new ResultContent<>(BasicConstant.ERROR_CODE,data,msg);
+    }
+    public static <T>ResultContent<T> createNoDataErrorResult(){
+        return new ResultContent<>(BasicConstant.ERROR_CODE,null,BasicConstant.ERROR_MSG);
     }
     public static <T>ResultContent<T> createErrorResult(String msg){
         return new ResultContent<>(BasicConstant.ERROR_CODE,msg);

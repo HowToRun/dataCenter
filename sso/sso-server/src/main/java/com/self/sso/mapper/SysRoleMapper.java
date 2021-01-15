@@ -1,6 +1,6 @@
 package com.self.sso.mapper;
 
-import com.self.sso.entity.RoleBasic;
+import com.self.sso.entity.SysRole;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Mht
- * @since 2020-12-10
+ * @since 2021-01-15
  */
-public interface RoleBasicMapper extends BaseMapper<RoleBasic> {
+public interface SysRoleMapper extends BaseMapper<SysRole> {
 
 }

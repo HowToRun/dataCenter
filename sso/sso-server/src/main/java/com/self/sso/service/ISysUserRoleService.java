@@ -1,6 +1,6 @@
 package com.self.sso.service;
 
-import com.self.sso.entity.RoleBasic;
+import com.self.sso.entity.SysUserRole;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Mht
- * @since 2020-12-10
+ * @since 2021-01-15
  */
-public interface IRoleBasicService extends IService<RoleBasic> {
+public interface ISysUserRoleService extends IService<SysUserRole> {
 
 }
